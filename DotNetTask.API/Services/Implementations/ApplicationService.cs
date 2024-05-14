@@ -13,7 +13,7 @@ namespace DotNetTask.API.Services.Implementations
         {
             _applicationRepository = applicationRepository;
         }
-        public async Task<BaseResponse> AddApplicationAsync(string programIdd, ApplicationRequest application)
+        public async Task<BaseResponse> AddApplicationAsync(string programId, ApplicationRequest application)
         {
             var result = new BaseResponse { Message = "Application NOT successful" };
             var existingApplication = await _applicationRepository.GetApplicationWithEmailAsync(application.Email);
@@ -49,7 +49,7 @@ namespace DotNetTask.API.Services.Implementations
             var applicationEntity = new Application
             {
                 Id = Guid.NewGuid().ToString(),
-                ProgramId = programIdd,
+                ProgramId = programId,
                 FirstName = application.FirstName,
                 LastName = application.LastName,
                 Email = application.Email,
