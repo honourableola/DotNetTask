@@ -7,5 +7,6 @@ namespace DotNetTask.Data.Repositories.Interfaces
         Task<ProgramData> AddProgramAsync(ProgramData program);
         Task<ProgramData> UpdateProgramAsync(string id, ProgramData program);
         Task<ProgramData> GetProgramQuestionsByIdAsync(string id);
+        Task<ProgramData> GetProgramByTitleAsync(string programTitle);
     }
 }

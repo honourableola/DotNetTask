@@ -29,5 +29,16 @@ namespace DotNetTask.Data.Repositories.Implementations
             var response = await _container.UpsertItemAsync(program, new PartitionKey(id));
             return response.Resource;
         }
+
+        public async Task<ProgramData> GetProgramByTitleAsync(string programTitle)
+        {
+            var query = new QueryDefinition("SELECT * FROM Programs p WHERE p.ProgramTitle = @ProgramTitle")
+                                            .WithParameter("@ProgramTitle", programTitle);
+
+            var iterator = _container.GetItemQueryIterator<ProgramData>(query);
+            var response = await iterator.ReadNextAsync();
+
+            return response.FirstOrDefault();
+        }
     }
 }
