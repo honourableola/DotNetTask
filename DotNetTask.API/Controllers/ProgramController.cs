@@ -5,7 +5,7 @@ using System.Net;
 
 namespace DotNetTask.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/programs")]
     [ApiController]
     public class ProgramController : ControllerBase
     {
