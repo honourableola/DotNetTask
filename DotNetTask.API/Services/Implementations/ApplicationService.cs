@@ -30,7 +30,7 @@ namespace DotNetTask.API.Services.Implementations
                 var response = new Response
                 {
                     Id = Guid.NewGuid().ToString(),
-                    QuestionId = answer.QuestionId,
+                    QuestionId = answer.QuestionId, //QuestionId is requested from front-end as opposed to Question text as it allows us to have access to everything about the question if need be
                 };
 
                 if (answer.MultipleResponse != null)

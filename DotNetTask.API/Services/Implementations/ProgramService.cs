@@ -16,6 +16,8 @@ namespace DotNetTask.API.Services.Implementations
         }
         public async Task<BaseResponse> AddProgramAsync(CreateProgramRequest request)
         {
+            //Personal information questions are not added when creating programs since they do not vary for programs
+            //thereby preventing data redundancy of storing them across all programs
             var response = new BaseResponse { Message = "Program creation NOT successful" };
             var existingProgram = await _programRepository.GetProgramByTitleAsync(request.ProgramTitle);
             if (existingProgram != null)
