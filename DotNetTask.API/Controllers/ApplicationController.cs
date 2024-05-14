@@ -17,7 +17,7 @@ namespace DotNetTask.API.Controllers
 
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(BaseResponse))]
         [HttpPost]
-        public async Task<IActionResult> Create(string programId, [FromBody] ApplicationRequest item)
+        public async Task<IActionResult> SubmitApplication(string programId, [FromBody] ApplicationRequest item)
         {
             var task = await _applicationService.AddApplicationAsync(programId, item);
             return Ok(task);
