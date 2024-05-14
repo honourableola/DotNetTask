@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetTask.API", "DotNetTas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTask.Data", "DotNetTask.Data\DotNetTask.Data.csproj", "{2B167570-89D7-4208-B617-54E2C1AD760E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTask.UnitTests", "DotNetTask.UnitTests\DotNetTask.UnitTests.csproj", "{F1CC817C-63A0-44F0-A2A3-EFD3A1310501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2B167570-89D7-4208-B617-54E2C1AD760E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B167570-89D7-4208-B617-54E2C1AD760E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B167570-89D7-4208-B617-54E2C1AD760E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1CC817C-63A0-44F0-A2A3-EFD3A1310501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CC817C-63A0-44F0-A2A3-EFD3A1310501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CC817C-63A0-44F0-A2A3-EFD3A1310501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CC817C-63A0-44F0-A2A3-EFD3A1310501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
