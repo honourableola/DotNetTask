@@ -2,6 +2,9 @@ using DotNetTask.API.CosmosSetUp;
 using DotNetTask.API.Services.Implementations;
 using DotNetTask.API.Services.Interfaces;
 using DotNetTask.Data.Repositories.Interfaces;
+using DotNetTask.Data.Validators;
+using FluentValidation;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddValidatorsFromAssemblyContaining<ApplicationValidator>();
 builder.Services.AddScoped<IProgramService, ProgramService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddSingleton<IProgramRepository>(_initializeCosmos.InitializeProgramRepositoryInstanceAsync().GetAwaiter().GetResult());

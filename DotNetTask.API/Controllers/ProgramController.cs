@@ -1,5 +1,7 @@
 ﻿using DotNetTask.API.Services.Interfaces;
 using DotNetTask.Data.Models;
+using DotNetTask.Data.Validators;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -19,6 +21,11 @@ namespace DotNetTask.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProgram([FromBody] CreateProgramRequest request)
         {
+            var validator = new CreateProgramValidator();
+            var result = validator.Validate(request);
+            if(!result.IsValid) 
+                return BadRequest(result.Errors);
+
             var response = await _programService.AddProgramAsync(request);
             return Ok(response);
         }
@@ -27,6 +34,11 @@ namespace DotNetTask.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> EditProgram(string id, [FromBody] UpdateProgramRequest request)
         {
+            var validator = new UpdateProgramValidator();
+            var result = validator.Validate(request);
+            if (!result.IsValid)
+                return BadRequest(result.Errors);
+
             var response = await _programService.EditProgramAsync(id, request);
             return Ok(response);
         }

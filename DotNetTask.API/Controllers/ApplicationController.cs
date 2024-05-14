@@ -1,5 +1,7 @@
-﻿using DotNetTask.API.Services.Interfaces;
+﻿using Azure.Core;
+using DotNetTask.API.Services.Interfaces;
 using DotNetTask.Data.Models;
+using DotNetTask.Data.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -17,9 +19,14 @@ namespace DotNetTask.API.Controllers
 
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(BaseResponse))]
         [HttpPost]
-        public async Task<IActionResult> SubmitApplication(string programId, [FromBody] ApplicationRequest item)
+        public async Task<IActionResult> SubmitApplication(string programId, [FromBody] ApplicationRequest request)
         {
-            var task = await _applicationService.AddApplicationAsync(programId, item);
+            var validator = new ApplicationValidator();
+            var result = validator.Validate(request);
+            if (!result.IsValid)
+                return BadRequest(result.Errors);
+
+            var task = await _applicationService.AddApplicationAsync(programId, request);
             return Ok(task);
         }
     }
