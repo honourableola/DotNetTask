@@ -15,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProgramService, ProgramService>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddSingleton<IProgramRepository>(_initializeCosmos.InitializeProgramRepositoryInstanceAsync().GetAwaiter().GetResult());
 builder.Services.AddSingleton<IApplicationRepository>(_initializeCosmos.InitializeApplicationRepositoryInstanceAsync().GetAwaiter().GetResult());
 
