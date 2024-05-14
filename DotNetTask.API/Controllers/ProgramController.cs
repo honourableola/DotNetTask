@@ -17,7 +17,7 @@ namespace DotNetTask.API.Controllers
 
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(BaseResponse))]
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateProgramRequest request)
+        public async Task<IActionResult> CreateProgram([FromBody] CreateProgramRequest request)
         {
             var response = await _programService.AddProgramAsync(request);
             return Ok(response);
@@ -25,7 +25,7 @@ namespace DotNetTask.API.Controllers
 
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(BaseResponse))]
         [HttpPut("{id}")]
-        public async Task<IActionResult> Edit(string id, [FromBody] UpdateProgramRequest request)
+        public async Task<IActionResult> EditProgram(string id, [FromBody] UpdateProgramRequest request)
         {
             var response = await _programService.EditProgramAsync(id, request);
             return Ok(response);
